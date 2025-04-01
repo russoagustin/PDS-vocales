@@ -1,4 +1,4 @@
-# Trabajo teórico práctico 1 PDSD
+# Trabajo teórico práctico 1 PDS - Grupo 7
 ## Dependencias
 - numpy
 - pydub
