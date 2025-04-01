@@ -14,6 +14,6 @@ time = np.linspace(0,len(samples)*periodo_muestreo,len(samples))    #"eje x" del
 
 diccionario = dict(zip(time,samples))
 
-with open("tarea1/muestras/output.txt", "w") as f:
+with open("muestras/output.txt", "w") as f:
     for key, value in diccionario.items():
         f.write(f"{key}\t{value}\n")
