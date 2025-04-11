@@ -7,8 +7,8 @@ data = np.loadtxt(file,comments='#', delimiter='\t')
 t = data[:,0]
 audio_signal = data[:,1]
 
+#Obtención de la frec. de muestreo
 lines = None
-
 with open(file,'r') as file:
     lines = file.readlines()
 
@@ -23,9 +23,6 @@ if fs_line is not None:
     fs=int(fs_value)
 else:
     raise ValueError("No se encontró la fruecuencia de muestreo")
-
-
-
 
 #Graficar forma de onda del audio
 plt.figure(figsize=(10,4))
@@ -45,12 +42,13 @@ fft_signal = np.fft.fft(audio_signal)
 positive_freqs = frecuencia[:n // 2]
 positive_fft = np.abs(fft_signal[:n // 2])
 
+# Grafico el espectro en frecuencia
 plt.figure(figsize=(10, 4))
 plt.plot(positive_freqs, positive_fft)
 plt.xlabel('Frecuencia (Hz)')
 plt.ylabel('Magnitud')
 plt.title('Espectro de Frecuencia')
 plt.grid(True)
-# Limitar el rango de frecuencias a mostrar, por ejemplo de 0 a 500 Hz
-plt.xlim(-10, 1500)
+# Limitar el rango de frecuencias a mostrar
+plt.xlim(-10, fs/2)
 plt.show()
